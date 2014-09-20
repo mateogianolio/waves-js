@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+[grid] {
+  margin-left: -3%;
+  max-width: 105%;
+}
+
+[grid~="overflow"] {
+  margin-left: -6%;
+  max-width: 109%;
+  width: 109%;
+  *width: 106%;
+}
+
+[size] {
+  width: 97%;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: top;
+  margin-left: 3%;
+  margin-right: -.25em;
+  *margin-right: -.15em;
+  overflow: hidden;
+  *overflow: visible;
+}
+
+[size~="1/2"],
+[size~="3/6"]  { width: 47%; }
+
+[size~="1/3"], 
+[size~="2/6"]  { width: 30.36%; }
+
+[size~="2/3"],
+[size~="4/6"]  { width: 63.66%; }
+
+[size~="1/4"]  { width: 22%; }
+[size~="3/4"]  { width: 72%; }
+
+[size~="1/5"]  { width: 17%; }
+[size~="2/5"]  { width: 37%; }
+[size~="3/5"]  { width: 57%; }
+[size~="4/5"]  { width: 77%; }
+
+[size~="1/6"]  { width: 13.66%; }
+[size~="5/6"]  { width: 80.74%; }
+
+@media screen and (max-width: 960px) {
+  [grid] {
+    *width: 105%;
+  }
+  
+  [grid~="overflow"] {
+    margin-left: -3%;
+    max-width: 105%;
+    width: 103%;
+  }
+  
+  [grid~="collapse"] {
+    margin-left: 0;
+    max-width: none;
+    width: 98%;
+  }
+  
+  [grid~="collapse"] [size] {
+    width: auto;
+    margin-left: 0;
+    display: block;
+  }
+}
