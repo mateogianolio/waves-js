@@ -10,6 +10,11 @@ input, textarea {
 
 textarea { height: 10rem; }
 
+a {
+  text-decoration: none;
+  color: #913149;
+}
+
 h2, h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -36,10 +41,6 @@ p, h2 {
 }
 
 [author] { font-size: .8rem; }
-[author] a {
-  text-decoration: none;
-  color: #913149;
-}
 
 @media screen and (max-width: 600px) {
   [content] {
