@@ -1,118 +1,86 @@
 <!doctype html>
 <html>
   <head>
-    <title>lines.js</title>
+    <title>Waves.js &mdash; Sinusoidal text animation in javascript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="grid.css">
-    <style>
-      body {
-        font-family: Georgia;
-        font-size: .7rem;
-        overflow: hidden;
-      }
-      
-      input {
-        width: 100%;
-      }
-      
-      h2, p {
-        margin-bottom: 1.5em;
-      }
-      
-      b {
-        color: #913149;
-      }
-      
-      #left, #right {
-        color: rgb(155, 155, 155);
-      }
-      
-      [content] {
-        margin-top: 1.5em;
-        font-size: 1.2rem;
-      }
-      
-      [red] { color: #913149; }
-      [right] { text-align: right; }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <script type="text/javascript">
       var content;
       function ready() {
-        content = document.getElementById("left").innerHTML;
+        content = document.getElementById("content").innerHTML;
         update();
         setInterval(function() { update(); }, 20);
       }
-      
-      var amplitude = 50;
-      var time = 0;
-      var frequency = 1/4;
-      var offset = 75;
-      var increment = Math.PI / 32;
-      function update() {
-        document.getElementById("left").innerHTML = "";
-        var length = 0,
-            x = 0;
-        var i;
-        
-        var words = content.split(' ');
-        var lines = [];
-        
-        for(i = 0; i < words.length; i++) {
-          if(!lines[x])
-            lines[x] = '';
-            
-          var word = words[i] + '&nbsp;';
-          lines[x] += word;
-            
-          length += word.length;
-          if(length >= (offset + Math.cos(time + x * frequency) * amplitude)) {
-            x++;
-            length = 0;
-          }
-        }
-        
-        var text = lines.join('<br>');
-        document.getElementById("left").innerHTML = text;
-        document.getElementById("right").innerHTML = text;
-        
-        time += increment;
-        if(time >= 2 * Math.PI)
-          time = 0;
-      }
     </script>
+    <script type="text/javascript" src="waves.js"></script>
   </head>
     
   <body onload="ready()">
     <div grid>
-      <div id="left" size="1/3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend massa sem, at egestas est elementum at. Pellentesque et interdum risus. Morbi semper augue <b>vitae risus dignissim hendrerit. Phasellus lectus est, dapibus laoreet feugiat sit amet, porttitor eu urna. Donec dolor tortor, malesuada in tempus a</b>, suscipit quis nisi. Integer lectus velit, semper in aliquam non, condimentum eget metus. Morbi et tempor nunc, sit amet cursus velit. Pellentesque eu gravida arcu. Ut et rutrum mi. Curabitur tristique vestibulum lacus, a dapibus lorem vestibulum id. Phasellus mollis pulvinar tellus, eget convallis turpis gravida et. Sed eget lorem sodales arcu volutpat sodales. Donec tempus ex in maximus gravida. Maecenas nec rhoncus est. Aliquam ultrices vitae orci ut malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque aliquam porttitor arcu vel malesuada. In vehicula dui arcu, quis maximus magna semper semper. Morbi egestas pharetra porta. Duis molestie tortor lectus, eget lacinia eros tincidunt id. <b>Mauris eu mollis diam. Integer lobortis orci vitae nisi vulputate, ac condimentum arcu tincidunt. Donec fringilla convallis metus vel dictum. Donec a erat vel ipsum posuere pulvinar eget in ante. Suspendisse eget aliquet tellus, vitae viverra risus.</b> Nam sagittis mauris ex, ac eleifend lacus sagittis eget. Ut molestie eget tortor et accumsan. Integer interdum non lacus ullamcorper facilisis. Mauris hendrerit orci id urna vehicula egestas. Nunc eu dolor pharetra, lacinia ligula vel, varius justo. Aliquam eu odio tortor. Proin ut mi in diam efficitur ultricies non a ipsum. Nam vel tempus mauris, eu facilisis metus. Morbi nec sapien nec lacus venenatis dictum in non ex. Curabitur a ante diam. Quisque quis libero ut mauris viverra consequat. Vivamus quis aliquam eros. Ut at mollis enim. Sed sapien mauris, ullamcorper ut dolor hendrerit, tempor ultricies arcu. <b>Nulla condimentum pharetra eleifend. Maecenas enim felis, eleifend non ante a, posuere feugiat leo. Duis lectus ligula, mollis at metus in, accumsan posuere nibh.</b> Etiam egestas in mi consequat congue. Duis porta eleifend quam, a condimentum ex vestibulum maximus. Vivamus at felis ultrices, tincidunt dolor fringilla, placerat tortor. Fusce fermentum dolor velit, sit amet rutrum orci varius eu. Donec est tortor, volutpat vel ullamcorper in, volutpat a urna. Vestibulum sed dapibus justo. In velit massa, lacinia nec nulla gravida, feugiat pellentesque erat. Suspendisse potenti. Praesent id mauris nec est facilisis dictum. Morbi quis nunc facilisis, egestas ipsum a, commodo justo. Morbi iaculis consectetur mauris, eget vestibulum diam. Nunc imperdiet odio nisi, sit amet tristique quam porttitor sit amet. Aenean consectetur, ante ac consequat lacinia, ex ligula lobortis lacus, id venenatis libero mi sed lorem. Etiam egestas in mi consequat congue. Duis porta eleifend quam, a condimentum ex vestibulum maximus. Vivamus at felis ultrices, tincidunt dolor fringilla, placerat tortor. Fusce fermentum dolor velit, sit amet rutrum orci varius eu. Donec est tortor, volutpat vel ullamcorper in, volutpat a urna. Vestibulum sed dapibus justo. In velit massa, lacinia nec nulla gravida, feugiat pellentesque erat. Suspendisse potenti. Praesent id mauris nec est facilisis dictum. Morbi quis nunc facilisis, egestas ipsum a, commodo justo. Morbi iaculis consectetur mauris, eget vestibulum diam. Nunc imperdiet odio nisi, sit amet tristique quam porttitor sit amet. Aenean consectetur, ante ac consequat lacinia, ex ligula lobortis lacus, id venenatis libero mi sed lorem.</div>
-      <div content size="1/3">
-        <h2 red>Sinusoidal text animation</h2>
-        <p>
-          &mdash; What the ... is happening to my screen? Is that lorem ipsum text?<br><br>
-          Yes.
-        </p>
-        <p>
-          &mdash; Can I touch it?<br><br>
-          Yes.
-        </p>
-        <p>
-          &Psi;(x) = &alpha; &middot; cos (&phi; &middot; t + x);
-        </p>
-        <div grid>
-          <div size="1/4">&alpha; = <output id="amp">30</output></div>
-          <div size="3/4"><input type="range" min="16" max="48" step="4" value="30" onchange="amplitude=value; amp.value=value;"></div>
+      <div id="left" size="1/2"></div>
+      <div id="right" size="1/2" right></div>
+    </div>
+    <div content>
+      <h3><span red>Waves</span>.js &mdash; Sinusoidal text animation in javascript</h3>
+      <p author>
+        by <a href="http://www.twitter.com/mateogianolio">@mateogianolio</a>
+      </p>
+      <p>
+        &Psi;(x) = A &middot; sin (&omega; &middot; x + &phi;)
+      </p>
+      <div grid="collapse">
+        <div size="1/3">A = <output id="a" red>36</output></div>
+        <div size="2/3">
+          <input type="range" 
+                 min="8" max="64" step="1" value="36" 
+                 onchange="amplitude=value; a.value=value;" 
+                 oninput="amplitude=value; a.value=value;">
         </div>
-        
-        <div grid>
-          <div size="1/4">&phi; = <output id="freq">&pi;/4</output></div>
-          <div size="3/4"><input type="range" min="1" max="32" step="1" value="4" onchange="frequency=Math.PI/value; freq.value='&pi;/' + value;"></div>
+
+        <div size="1/3">&omega; = <output id="omega" red>&pi;/17</output></div>
+        <div size="2/3">
+          <input type="range" 
+                 min="2" max="32" step="1" value="17" 
+                 onchange="frequency = Math.PI / value; omega.value='&pi;/' + value;"
+                 oninput="frequency = Math.PI / value; omega.value='&pi;/' + value;">
         </div>
-        
-        <div grid>
-          <div size="1/4">t = <output id="inc">&pi;/32</output></div>
-          <div size="3/4"><input type="range" min="16" max="48" step="4" value="32" onchange="increment=value; inc.value=value;"></div>
+
+        <div size="1/3">&phi;<sub>inc</sub> = <output id="phi" red>&pi;/36</output></div>
+        <div size="2/3">
+          <input type="range" 
+                 min="8" max="64" step="1" value="36" 
+                 onchange="phase_increment = Math.PI / value; phi.value = '&pi;/' + value;"
+                 oninput="phase_increment = Math.PI / value; phi.value = '&pi;/' + value;">
+        </div>
+        <br>
+        <br>
+        <div size="1/3">font-size = <output id="fontsize" red>0.5rem</output></div>
+        <div size="2/3">
+          <input type="range" 
+                 min=".25" max=".75" step="0.01" value=".5" 
+                 onchange="left.style.fontSize = value + 'rem'; right.style.fontSize = value + 'rem'; fontsize.value = value + 'rem';"
+                 oninput="left.style.fontSize = value + 'rem'; right.style.fontSize = value + 'rem'; fontsize.value = value + 'rem';">
+        </div>
+        <br>
+        <br>
+        <div size="1">
+          <h3 red>Text</h3>
+          (has to consist of space-separated words)
+          <br>
+          <br>
+          <textarea id="content" onchange="content = this.value;" oninput="content = this.value;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend massa sem, at egestas est elementum at. Pellentesque et interdum risus. Morbi semper augue vitae risus dignissim hendrerit. Phasellus lectus est, dapibus laoreet feugiat sit amet, porttitor eu urna. Donec dolor tortor, malesuada in tempus a, suscipit quis nisi. Integer lectus velit, semper in aliquam non, condimentum eget metus. Morbi et tempor nunc, sit amet cursus velit. Pellentesque eu gravida arcu. Ut et rutrum mi. Curabitur tristique vestibulum lacus, a dapibus lorem vestibulum id. Phasellus mollis pulvinar tellus, eget convallis turpis gravida et. Sed eget lorem sodales arcu volutpat sodales. Donec tempus ex in maximus gravida. Maecenas nec rhoncus est. Aliquam ultrices vitae orci ut malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque aliquam porttitor arcu vel malesuada. In vehicula dui arcu, quis maximus magna semper semper. Morbi egestas pharetra porta. Duis molestie tortor lectus, eget lacinia eros tincidunt id. Mauris eu mollis diam. Integer lobortis orci vitae nisi vulputate, ac condimentum arcu tincidunt. Donec fringilla convallis metus vel dictum. Donec a erat vel ipsum posuere pulvinar eget in ante. Suspendisse eget aliquet tellus, vitae viverra risus. Nam sagittis mauris ex, ac eleifend lacus sagittis eget. Ut molestie eget tortor et accumsan. Integer interdum non lacus ullamcorper facilisis. Mauris hendrerit orci id urna vehicula egestas. Nunc eu dolor pharetra, lacinia ligula vel, varius justo. Aliquam eu odio tortor. Proin ut mi in diam efficitur ultricies non a ipsum. Nam vel tempus mauris, eu facilisis metus. Morbi nec sapien nec lacus venenatis dictum in non ex. Curabitur a ante diam. Quisque quis libero ut mauris viverra consequat. Vivamus quis aliquam eros. Ut at mollis enim. Sed sapien mauris, ullamcorper ut dolor hendrerit, tempor ultricies arcu. Nulla condimentum pharetra eleifend. Maecenas enim felis, eleifend non ante a, posuere feugiat leo. Duis lectus ligula, mollis at metus in, accumsan posuere nibh. Etiam egestas in mi consequat congue. Duis porta eleifend quam, a condimentum ex vestibulum maximus. Vivamus at felis ultrices, tincidunt dolor fringilla, placerat tortor. Fusce fermentum dolor velit, sit amet rutrum orci varius eu. Donec est tortor, volutpat vel ullamcorper in, volutpat a urna. Vestibulum sed dapibus justo. In velit massa, lacinia nec nulla gravida, feugiat pellentesque erat. Suspendisse potenti. Praesent id mauris nec est facilisis dictum. Morbi quis nunc facilisis, egestas ipsum a, commodo justo. Morbi iaculis consectetur mauris, eget vestibulum diam. Nunc imperdiet odio nisi, sit amet tristique quam porttitor sit amet. Aenean consectetur, ante ac consequat lacinia, ex ligula lobortis lacus, id venenatis libero mi sed lorem. Etiam egestas in mi consequat congue. Duis porta eleifend quam, a condimentum ex vestibulum maximus. Vivamus at felis ultrices, tincidunt dolor fringilla, placerat tortor. Fusce fermentum dolor velit, sit amet rutrum orci varius eu. Donec est tortor, volutpat vel ullamcorper in, volutpat a urna. Vestibulum sed dapibus justo. In velit massa, lacinia nec nulla gravida, feugiat pellentesque erat. Suspendisse potenti. Praesent id mauris nec est facilisis dictum. Morbi quis nunc facilisis, egestas ipsum a, commodo justo. Morbi iaculis consectetur mauris, eget vestibulum diam. Nunc imperdiet odio nisi, sit amet tristique quam porttitor sit amet. Aenean consectetur, ante ac consequat lacinia, ex ligula lobortis lacus, id venenatis libero mi sed lorem. Etiam egestas in mi consequat congue. Duis porta eleifend quam, a condimentum ex vestibulum maximus. Vivamus at felis ultrices, tincidunt dolor fringilla, placerat tortor. Fusce fermentum dolor velit, sit amet rutrum orci varius eu. Donec est tortor, volutpat vel ullamcorper in, volutpat a urna. Vestibulum sed dapibus justo. In velit massa, lacinia nec nulla gravida, feugiat pellentesque erat. Suspendisse potenti. Praesent id mauris nec est facilisis dictum. Morbi quis nunc facilisis, egestas ipsum a, commodo justo. Morbi iaculis consectetur mauris, eget vestibulum diam. Nunc imperdiet odio nisi, sit amet tristique quam porttitor sit amet. Aenean consectetur, ante ac consequat lacinia, ex ligula lobortis lacus, id venenatis libero mi sed lorem. Etiam egestas in mi consequat congue. Duis porta eleifend quam, a condimentum ex vestibulum maximus. Vivamus at felis ultrices, tincidunt dolor fringilla, placerat tortor. Fusce fermentum dolor velit, sit amet rutrum orci varius eu. Donec est tortor, volutpat vel ullamcorper in, volutpat a urna. Vestibulum sed dapibus justo. In velit massa, lacinia nec nulla gravida, feugiat pellentesque erat. Suspendisse potenti. Praesent id mauris nec est facilisis dictum. Morbi quis nunc facilisis, egestas ipsum a, commodo justo. Morbi iaculis consectetur mauris, eget vestibulum diam. Nunc imperdiet odio nisi, sit amet tristique quam porttitor sit amet. Aenean consectetur, ante ac consequat lacinia, ex ligula lobortis lacus, id venenatis libero mi sed lorem. </textarea>
         </div>
       </div>
-      <div id="right" size="1/3" right></div>
     </div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-41408481-3', 'auto');
+      ga('send', 'pageview');
+    </script>
   </body>
 </html>

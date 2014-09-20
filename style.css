@@ -1,0 +1,52 @@
+body {
+  font-family: Georgia, "Palatino Linotype", serif;
+  font-size: .7rem;
+  overflow: hidden;
+}
+
+input, textarea {
+  width: 100%;
+}
+
+textarea { height: 10rem; }
+
+h2, h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+p, h2 {
+  margin-bottom: 1.5em;
+}
+
+#left, #right {
+  font-size: .5rem;
+  color: rgb(185, 185, 185);
+}
+
+[content] {
+  width: 50%;
+  padding: 2%;
+  position: absolute;
+  top: 0;
+  left: 25%;
+  margin-top: 5%;
+  font-size: 1rem;
+  z-index: 999;
+}
+
+[author] { font-size: .8rem; }
+[author] a {
+  text-decoration: none;
+  color: #913149;
+}
+
+@media screen and (max-width: 600px) {
+  [content] {
+    width: 80%;
+    left: 10%;
+  }
+}
+      
+[red] { color: #913149; }
+[right] { text-align: right; }
