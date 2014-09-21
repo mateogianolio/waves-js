@@ -7,7 +7,7 @@ var escapeRegexes,
     phase_increment = Math.PI / 36;
 
 escapeRegexes = {
-  "&nbsp": /&/g,
+  "&amp;": /&/g,
   "&lt;": /</g,
   "&gt;": />/g,
   "&quot;": /"/g,
